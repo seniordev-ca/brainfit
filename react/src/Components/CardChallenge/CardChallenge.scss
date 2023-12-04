@@ -1,0 +1,12 @@
+.CardChallenge {
+    // @apply active:opacity-75 cursor-pointer;
+    // @apply dark:active:opacity-50;
+    .icon_container {
+        @apply flex justify-center w-20 h-20 mr-2 rounded-lg bg-mom_lightMode_surface-dimmed;
+        @apply dark:bg-mom_darkMode_surface-dimmed;
+
+        svg {
+            @apply w-16 h-16;
+        }
+    }
+}

@@ -1,0 +1,98 @@
+# AWS_DEPLOYMENT_STAGE_NAME
+#   development: "dev"
+#   staging:     "stage"
+#   production:  "prod"
+
+image: node:14-alpine
+
+definitions:
+  caches:
+    react: react/node_modules
+  steps:
+    # Setup environment, install client and server dependencies, authenticate against AWS.
+    - step: &setup
+        name: Setup Build Environment
+        caches:
+          - node
+          - react
+        script:
+          - apk add python3 make
+          - npm install
+          - cd react && npm install && cd ..
+          - npx serverless plugin install -n serverless-s3-sync@2.0.0
+          - echo $BITBUCKET_PR_DESTINATION_BRANCH
+        artifacts:
+          - node_modules/**
+          - react/node_modules/**
+    # Execute code-linter against codebase.
+    - step: &lint
+        name: Lint Code
+        caches:
+          - node
+          - react
+        script:
+          - npm run lint-all
+    # Execute unit-tests.
+    - step: &test
+        name: Run Unit Tests
+        caches:
+          - node
+          - react
+        max-time: 10
+        script:
+          - npm run test-unit-server
+          - cd react && npm run test-client
+    # Run audit-check ('npm audit') against included npm packages.
+    - step: &audit
+        name: Audit Packages
+        caches:
+          - node
+          - react
+        script:
+          - npm run audit-server
+          - npm run audit-client
+    # Deploy client-build and packaged server lambdas to the target environment.
+    - step: &deploy
+        name: Deploy Application
+        caches:
+          - node
+          - react
+        script:
+          - cd react
+          - npm run build-client
+          - cd ..
+          - echo $BITBUCKET_PR_DESTINATION_BRANCH
+          - npx serverless config credentials --provider aws --key ${AWS_ACCESS_KEY_ID} --secret ${AWS_SECRET_ACCESS_KEY}
+          - npx serverless plugin install -n serverless-s3-sync@2.0.0
+          - npx serverless deploy --stage $AWS_DEPLOYMENT_STAGE_NAME
+
+pipelines:
+  pull-requests:
+    # Default branches
+    '**':
+      - step: *setup
+      - parallel:
+          - step: *lint
+          - step: *test
+          - step: *audit
+
+  branches:
+    develop:
+      - step: *setup
+      - step:
+          <<: *deploy
+          name: Deploy to Develop
+          deployment: dev
+    release:
+      - step: *setup
+      - step:
+          <<: *deploy
+          name: Deploy to Stage
+          deployment: staging
+    main:
+      - step: *setup
+      - step:
+          <<: *deploy
+          name: Deploy to Production
+          deployment: production
+          trigger: manual

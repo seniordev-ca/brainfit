@@ -1,0 +1,44 @@
+.progressIcon_container {
+    @apply w-14 h-14 flex-none;
+}
+.habitText_container {
+    @apply pl-2 flex-grow;
+
+    .habitText_ellipsis {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    
+        @apply overflow-hidden;
+    }
+}
+.habitStatus {
+    @apply opacity-75;
+}
+.habitPillar {
+    @apply opacity-50;
+}
+
+.cardHabit_tutorialOverlay {
+    .tut1Content, .tut2Content {
+        @apply hidden;
+    }
+}
+
+.cardHabit_tutorialOverlay.active {
+    .tut1, .tut2 {
+        @apply relative;
+    }
+    .tut1Content {
+        @apply inline-block absolute w-1/3 top-28 left-3/4 transform -translate-x-2/3 z-20;
+    }
+    .tut2Content {
+        @apply inline-block absolute w-1/3 top-16 left-0 z-10;
+    }
+    .tut1Content, .tut2Content {
+        svg {
+            @apply fill-mom_lightMode_icon-neutral;
+            @apply dark:fill-mom_darkMode_icon-neutral;
+        }
+    }
+}

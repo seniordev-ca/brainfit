@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "919093215861",
+    "project_id": "mind-676ca",
+    "storage_bucket": "mind-676ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919093215861:android:a83b0091618db9d6da6e3c",
+        "android_client_info": {
+          "package_name": "co.bitbakery.MindOverMatter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919093215861-i3bcscotohqauchvd7fe73v2o3tahhfg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzVyWK-ftvW0RT0d_rxZu1COuUmxgN6VY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919093215861-i3bcscotohqauchvd7fe73v2o3tahhfg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

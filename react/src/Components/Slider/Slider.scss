@@ -1,0 +1,13 @@
+.slider-container {
+    .MuiSlider-track {
+        @apply opacity-0;
+    }
+    .MuiSlider-rail {
+        @apply bg-mom_lightMode_surface-borderDimmed opacity-100 h-2;
+        @apply dark:bg-mom_darkMode_surface-borderDimmed;
+    }
+    .MuiSlider-thumb {
+        @apply bg-white w-8 h-8 border-2 border-mom_lightMode_icon-primary;   
+        @apply dark:bg-mom_darkMode_surface-background dark:border-mom_darkMode_icon-primary ;
+    }
+}

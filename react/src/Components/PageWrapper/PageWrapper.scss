@@ -1,0 +1,30 @@
+/* Page Wrapper */
+.pageWrapper {
+  @apply transition duration-300 ease-in-out;
+
+  @apply w-full px-6 bg-white;
+  @apply dark:bg-mom_darkMode_surface-background;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: scroll;
+  padding-bottom: 120px;
+}
+
+.pageWrapper.sidesOnly {
+    padding-top: 0;
+}
+
+.pageWrapper.modal {
+  overflow: scroll
+}
+
+.modalState {
+  @apply bg-gray-100 rounded-xl scale-modal transition duration-300 ease-in-out;
+  overflow: hidden;
+}
+.modalClosed {
+  @apply rounded-none scale-100 transition duration-300 ease-in-out;
+  background-color: initial;
+}

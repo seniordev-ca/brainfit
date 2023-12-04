@@ -1,0 +1,11 @@
+.filterPill {
+    @apply inline-block text-body rounded-lg py-2 px-4 border-2;
+}
+.filterPill.true {
+    @apply text-headingSmall text-mom_lightMode_text-light bg-mom_lightMode_action-neutral border-mom_lightMode_action-neutral;
+    @apply dark:bg-mom_lightMode_surface-background dark:text-mom_lightMode_text-neutral;
+}
+.filterPill.false {
+    @apply text-mom_lightMode_text-neutral border-mom_lightMode_surface-border;
+    @apply dark:text-mom_lightMode_text-light dark:border-mom_darkMode_surface-border;
+}

@@ -1,0 +1,56 @@
+#today {
+  @apply container w-full mx-auto h-full pb-24;
+
+  #todayHeader {
+    @apply grid grid-cols-2;
+    // @apply inline-flex justify-between lg:justify-around items-center w-full px-4;
+
+    .header-control {
+      @apply rounded-full w-7 h-7;
+    }
+  }
+
+  .custom-card {
+    .card-content {
+      @apply p-7;
+    }
+  }
+
+  .weekly-goals {
+    .card-content {
+      @apply py-5 px-3;
+    }
+  }
+
+  #notificationButton {
+    @apply p-1;
+    svg {
+      @apply w-full h-full;
+      @apply fill-mom_lightMode_icon-primary;
+      @apply dark:fill-mom_darkMode_icon-primary;
+    }
+  }
+}
+
+.colourIcon {
+  align-items: center;
+  margin-left: 20px;
+  left: 10px;
+  //background-color: red;
+}
+
+.colourIcon:hover {
+  cursor: pointer;
+}
+
+.emoji-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}

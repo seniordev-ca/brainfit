@@ -1,0 +1,15 @@
+/* Switch */
+.toggle-path {
+    @apply transition-all duration-300 ease-in-out bg-mom_lightMode_surface-border w-[3.188rem] h-[1.938rem] rounded-full; 
+    @apply dark:bg-mom_darkMode_surface-border;
+}
+.toggle-circle {
+    @apply top-0.5 left-0.5 transition-all duration-300 ease-in-out absolute w-[1.688rem] h-[1.688rem] bg-white rounded-full shadow inset-y-0;
+}
+input:checked ~ .toggle-circle {
+    @apply translate-x-5;
+}
+input:checked ~ .toggle-path {
+    @apply bg-mom_lightMode_icon-primary; 
+    @apply dark:bg-mom_darkMode_action-primary;
+}

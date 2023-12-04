@@ -1,0 +1,14 @@
+.left_action_header_primary {
+    @apply text-mom_lightMode_text-primary; 
+    @apply dark:text-mom_darkMode_text-primary;
+}
+
+.title_header_neutral {
+    @apply text-mom_lightMode_text-neutral; 
+    @apply dark:text-mom_darkMode_text-neutral;
+}
+
+.right_action_header_primary {
+    @apply text-mom_lightMode_text-primary; 
+    @apply dark:text-mom_darkMode_text-primary;
+}

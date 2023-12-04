@@ -1,0 +1,22 @@
+Resources:
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: mindovermatter-${opt:stage, self:provider.stage}
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+  SiteBucketAllowPublicReadPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement: 
+          - Effect: Allow
+            Action: 
+              - "s3:GetObject"
+            Resource: 
+              - !Join ['/', [!GetAtt [SiteBucket, Arn], '*']]
+            Principal: "*"

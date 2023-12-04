@@ -1,0 +1,491 @@
+# Reference: https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml
+
+service: mindovermatter
+
+variablesResolutionMode: 20210326
+
+frameworkVersion: '2'
+
+plugins:
+  - serverless-s3-sync
+  - serverless-webpack
+  - serverless-prune-plugin
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: 'dev'
+  region: 'ca-central-1'
+  timeout: 30
+  memorySize: 256
+  lambdaHashingVersion: 20201221
+  environment:
+    AWS_STAGE: ${opt:stage, self:provider.stage}
+    FIREBASE_CLIENT_EMAIL: ${ssm:/mindovermatter/${opt:stage, self:provider.stage}/FIREBASE_CLIENT_EMAIL}
+    FIREBASE_PROJECT_ID: ${ssm:/mindovermatter/${opt:stage, self:provider.stage}/FIREBASE_PROJECT_ID}
+    FIREBASE_PRIVATE_KEY: ${ssm:/mindovermatter/${opt:stage, self:provider.stage}/FIREBASE_PRIVATE_KEY}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:DeleteItem
+            - dynamodb:Delete*
+            - dynamodb:PartiQLInsert
+            - dynamodb:PartiQLUpdate
+            - dynamodb:PartiQLDelete
+            - dynamodb:PartiQLSelect
+            - dynamodb:BatchWriteItem
+          Resource: 'arn:aws:dynamodb:ca-central-1:*:*'
+        - Effect: Allow
+          Action:
+            - ssm:GetParameters
+            - ssm:GetParameter
+          Resource: 'arn:aws:ssm:ca-central-1:*:*'
+        - Effect: Allow
+          Action:
+            - ses:SendEmail
+            - ses:SendRawEmail
+          Resource: 'arn:aws:ses:ca-central-1:*:*'
+
+package:
+  exclude:
+    # Files
+    - .audit-ci.json
+    - .env
+    - .eslintcache
+    - .eslintignore
+    - .eslintrc.json
+    - .gitignore
+    - .npmignore
+    - .nvmrc
+    - .prettierignore
+    - .prettierrc.json
+    - bitbucket-pipelines.yml
+    - package.json
+    - package-lock.json
+    - README.md
+    - serverless.yml
+    # Directories
+    - .webpack/**
+    - .idea/**
+    - .vscode/**
+    - architecture/**
+    # - node_modules/**
+    - react/**
+    - resources/**
+    - scripts/**
+#  individually: true
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  webpack:
+    includeModules: true
+  bundle:
+    linting: true
+  prune:
+    automatic: true
+    includeLayers: true
+    number: 10
+  s3Sync:
+    - bucketName: ${ssm:/mindovermatter/${opt:stage, self:provider.stage}/BUCKET_NAME}
+      localDir: react/build
+
+functions:
+  debugInfo:
+    handler: lambda/handlers/debugInfo.handler
+    environment: ${file(env/env.${opt:stage, self:provider.stage}.json)}
+    events:
+      - http:
+          path: debug-info
+          method: get
+  contentfulEntryPublish:
+    handler: lambda/handlers/contentfulEntryPublish.handler
+    environment:
+      CONTENTFUL_SECRET: ${ssm:/mindovermatter/${opt:stage, self:provider.stage}/CONTENTFUL_SECRET}
+    events:
+      - http:
+          path: contentful-entry-publish
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  helloWorld:
+    handler: lambda/handlers/helloWorld.handler
+    events:
+      - http:
+          path: hello-world
+          method: get
+          cors: true
+  testWriteDb:
+    handler: lambda/handlers/testWriteDb.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: test-db
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  mergeUser:
+    handler: lambda/handlers/mergeUser.handler
+    events:
+      - http:
+          path: merge-user
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  testReadDb:
+    handler: lambda/handlers/testReadDb.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: test-db/{id}
+          method: get
+          cors: true
+          request:
+            parameters:
+              paths:
+                id: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  registerUser:
+    handler: lambda/handlers/registerUser.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: register-user
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  submitQuestionnaireData:
+    handler: lambda/handlers/submitQuestionnaireData.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: submit-questionnaire-data
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  submitOnboardingData:
+    handler: lambda/handlers/submitOnboardingData.handler
+    events:
+      - http:
+          path: submit-onboarding-data
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getOnboardingData:
+    handler: lambda/handlers/getOnboardingData.handler
+    events:
+      - http:
+          path: get-onboarding-data
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  deleteOnboardingData:
+    handler: lambda/handlers/deleteOnboardingData.handler
+    events:
+      - http:
+          path: delete-onboarding-data
+          method: post
+          cors: true
+  addSatisfactions:
+    handler: lambda/handlers/addSatisfactions.handler
+    events:
+      - http:
+          path: add-satisfactions
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getAllSatisfactions:
+    handler: lambda/handlers/getAllSatisfactions.handler
+    events:
+      - http:
+          path: get-all-satisfactions
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  deleteSatisfactions:
+    handler: lambda/handlers/deleteSatisfactions.handler
+    events:
+      - http:
+          path: delete-satisfactions
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getHabitsByPillar:
+    handler: lambda/handlers/getHabitsByPillar.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: get-habits-by-pillar
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getChallenges:
+    handler: lambda/handlers/getChallenges.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: get-challenges
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  scheduleHabit:
+    handler: lambda/handlers/scheduleHabit.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: schedule-habit
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  takeChallenge:
+    handler: lambda/handlers/takeChallenge.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: take-challenge
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  deleteHabit:
+    handler: lambda/handlers/deleteHabit.handler
+    events:
+      - http:
+          path: delete-habit
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  deleteManyHabits:
+    handler: lambda/handlers/deleteManyHabits.handler
+    events:
+      - http:
+          path: delete-many-habits
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  clearData:
+    handler: lambda/handlers/clearData.handler
+    events:
+      - http:
+          path: clear-data
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  pauseHabit:
+    handler: lambda/handlers/pauseHabit.handler
+    events:
+      - http:
+          path: pause-habit
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  archiveHabit:
+    handler: lambda/handlers/archiveHabit.handler
+    events:
+      - http:
+          path: archive-habit
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getHabitByID:
+    handler: lambda/handlers/getHabitById.handler
+    events:
+      - http:
+          path: get-habit-by-id
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getHabitsByDay:
+    handler: lambda/handlers/getHabitsByDay.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: get-habits-by-day
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getHabitsByDate:
+    handler: lambda/handlers/getHabitsByDate.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: get-habits-by-date
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  trackActivity:
+    handler: lambda/handlers/trackActivity.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: track-activity
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getCompletionInformation:
+    handler: lambda/handlers/getCompletionInformation.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: get-completion-information
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getAwards:
+    handler: lambda/handlers/getAwards.handler
+    events:
+      - http:
+          path: get-awards
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  claimAward:
+    handler: lambda/handlers/claimAward.handler
+    events:
+      - http:
+          path: claim-award
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  saveFitbitData:
+    handler: lambda/handlers/saveFitbitData.handler
+    events:
+      - http:
+          path: save-fitbit-data
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  registerForNotificationGroup:
+    handler: lambda/handlers/registerForNotificationGroup.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: register-for-notification-group
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  sendNotificationToGroup:
+    handler: lambda/handlers/sendNotificationToGroup.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: send-notification-to-group
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getAchievementData:
+    handler: lambda/handlers/getAchievementData.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: get-achievement
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  recordAchievement:
+    handler: lambda/handlers/recordAchievement.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: record-achievement
+          method: post
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getActivityForHabit:
+    handler: lambda/handlers/getActivityForHabit.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: get-activity-for-habit
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getLatestActivitesForAllHabits:
+    handler: lambda/handlers/getLatestActivitesForAllHabits.handler
+    events:
+      - http:
+          path: get-latest-activities
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getActivityForDate:
+    handler: lambda/handlers/getActivityForDate.handler
+    environment:
+      AWS_STAGE: ${opt:stage, self:provider.stage}
+    events:
+      - http:
+          path: get-activity-for-date
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+  getActivity:
+    handler: lambda/handlers/getActivity.handler
+    events:
+      - http:
+          path: get-activity
+          method: get
+          cors: true
+    layers:
+      - { Ref: SharedLambdaLayer }
+
+resources:
+  - ${file(resources/dynamodb-tables.yml)}
+  - ${file(resources/s3-bucket.yml)}
+
+layers:
+  shared:
+    path: lambda/layers/shared

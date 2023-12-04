@@ -1,0 +1,13 @@
+.bg-brain {
+    @apply text-mom_lightMode_icon-primary opacity-25;
+    @apply dark:text-mom_darkMode_icon-primary;
+    stroke: currentColor;
+}
+
+.fg-brain {
+    @apply text-mom_lightMode_icon-primary;
+    @apply dark:text-mom_darkMode_icon-primary;
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    stroke: currentColor;
+}

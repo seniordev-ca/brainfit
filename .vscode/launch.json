@@ -1,0 +1,57 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach",
+      "port": 27017,
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node",
+      "restart": true
+    },
+    {
+      "name": "Debug tests single run",
+      "type": "node",
+      "runtimeExecutable": "npm",
+      "request": "launch",
+      "env": {
+        "CI": "true"
+      },
+      "args": [
+        "test",
+        "--runInBand",
+        "--no-cache"
+      ],
+      "cwd": "${workspaceRoot}/react",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "nodeVersionHint": 10
+    },
+    {
+      "name": "Run test updating snapshot",
+      "type": "node",
+      "request": "launch",
+      "env": {
+        "CI": "true"
+      },
+      "runtimeExecutable": "npm",
+      "args": [
+        "test",
+        "--runInBand",
+        "--no-cache",
+        "--updateSnapshot"
+      ],
+      "cwd": "${workspaceRoot}/react",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "nodeVersionHint": 10
+    }
+  ]
+}

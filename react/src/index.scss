@@ -1,0 +1,570 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'playfair';
+  src: url('../src/fonts/PlayfairDisplay-VariableFont_wght.ttf');
+}
+@font-face {
+  font-family: 'inter';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  src: url('../src/fonts/Inter-VariableFont_slnt,wght.ttf');
+}
+// removes blue outline on inputs (may need to be more specific if there's unwanted effects from this)
+*:focus {
+  box-shadow: none !important;
+}
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  outline: none;
+}
+
+/* Colour classes */
+.default {
+  @apply bg-mom_lightMode_icon-neutral text-mom_lightMode_icon-neutral dark:bg-mom_darkMode_icon-neutral dark:text-mom_darkMode_icon-neutral;
+}
+.exercise {
+  @apply bg-mom_pillar-exercise text-mom_pillar-exercise;
+}
+.nutrition {
+  @apply bg-mom_pillar-nutrition text-mom_pillar-nutrition;
+}
+.stress {
+  @apply bg-mom_pillar-stress text-mom_pillar-stress;
+}
+.social {
+  @apply bg-mom_pillar-social text-mom_pillar-social;
+}
+.sleep {
+  @apply bg-mom_pillar-sleep text-mom_pillar-sleep;
+}
+.mental {
+  @apply bg-mom_pillar-mental text-mom_pillar-mental;
+}
+.purple {
+  @apply bg-mom_lightMode_icon-purple text-mom_lightMode_icon-purple;
+}
+.pink {
+  @apply bg-mom_lightMode_icon-pink text-mom_lightMode_icon-pink;
+}
+.red {
+  @apply bg-mom_lightMode_icon-red text-mom_lightMode_icon-red;
+}
+.orange {
+  @apply bg-mom_lightMode_icon-orange text-mom_lightMode_icon-orange;
+}
+.yellow {
+  @apply bg-mom_lightMode_icon-yellow text-mom_lightMode_icon-yellow;
+}
+.teal {
+  @apply bg-mom_lightMode_icon-teal text-mom_lightMode_icon-teal;
+}
+.green {
+  @apply bg-mom_lightMode_icon-green text-mom_lightMode_icon-green;
+}
+.blue {
+  @apply bg-mom_lightMode_icon-blue text-mom_lightMode_icon-blue;
+}
+.lightBlue {
+  @apply bg-mom_lightMode_icon-lightBlue text-mom_lightMode_icon-lightBlue;
+}
+.brown {
+  @apply bg-mom_lightMode_icon-brown text-mom_lightMode_icon-brown;
+}
+.grey {
+  @apply bg-mom_lightMode_icon-grey text-mom_lightMode_icon-grey;
+}
+.black {
+  @apply bg-mom_lightMode_icon-black text-mom_lightMode_icon-black dark:bg-white dark:text-white;
+}
+
+@layer utilities {
+  .stroke-default {
+    @apply stroke-mom_lightMode_icon-neutral dark:stroke-mom_darkMode_icon-neutral #{!important};
+  }
+  .stroke-primary {
+    @apply stroke-mom_lightMode_icon-primary dark:stroke-mom_darkMode_icon-primary #{!important};
+  }
+  .stroke-exercise {
+    @apply stroke-mom_lightMode_icon-exercise  #{!important};
+  }
+  .stroke-nutrition {
+    @apply stroke-mom_lightMode_icon-nutrition  #{!important};
+  }
+  .stroke-stress {
+    @apply stroke-mom_lightMode_icon-stress  #{!important};
+  }
+  .stroke-social {
+    @apply stroke-mom_lightMode_icon-social  #{!important};
+  }
+  .stroke-sleep {
+    @apply stroke-mom_lightMode_icon-sleep  #{!important};
+  }
+  .stroke-mental {
+    @apply stroke-mom_lightMode_icon-mental  #{!important};
+  }
+  .stroke-purple {
+    @apply stroke-mom_lightMode_icon-purple  #{!important};
+  }
+  .stroke-pink {
+    @apply stroke-mom_lightMode_icon-pink  #{!important};
+  }
+  .stroke-red {
+    @apply stroke-mom_lightMode_icon-red  #{!important};
+  }
+  .stroke-orange {
+    @apply stroke-mom_lightMode_icon-orange  #{!important};
+  }
+  .stroke-yellow {
+    @apply stroke-mom_lightMode_icon-yellow  #{!important};
+  }
+  .stroke-teal {
+    @apply stroke-mom_lightMode_icon-teal  #{!important};
+  }
+  .stroke-green {
+    @apply stroke-mom_lightMode_icon-green  #{!important};
+  }
+  .stroke-blue {
+    @apply stroke-mom_lightMode_icon-blue  #{!important};
+  }
+  .stroke-lightBlue {
+    @apply stroke-mom_lightMode_icon-lightBlue  #{!important};
+  }
+  .stroke-brown {
+    @apply stroke-mom_lightMode_icon-brown  #{!important};
+  }
+  .stroke-grey {
+    @apply stroke-mom_lightMode_icon-grey  #{!important};
+  }
+  .stroke-black {
+    @apply stroke-mom_lightMode_icon-black dark:stroke-white  #{!important};
+  }
+}
+
+@layer utilities {
+  .fill-default {
+    @apply fill-mom_lightMode_icon-neutral dark:fill-mom_darkMode_icon-neutral;
+  }
+  .fill-exercise {
+    @apply fill-mom_lightMode_icon-exercise;
+  }
+  .fill-nutrition {
+    @apply fill-mom_lightMode_icon-nutrition;
+  }
+  .fill-stress {
+    @apply fill-mom_lightMode_icon-stress;
+  }
+  .fill-social {
+    @apply fill-mom_lightMode_icon-social;
+  }
+  .fill-sleep {
+    @apply fill-mom_lightMode_icon-sleep;
+  }
+  .fill-mental {
+    @apply fill-mom_lightMode_icon-mental;
+  }
+  .fill-purple {
+    @apply fill-mom_lightMode_icon-purple;
+  }
+  .fill-pink {
+    @apply fill-mom_lightMode_icon-pink;
+  }
+  .fill-red {
+    @apply fill-mom_lightMode_icon-red;
+  }
+  .fill-orange {
+    @apply fill-mom_lightMode_icon-orange;
+  }
+  .fill-yellow {
+    @apply fill-mom_lightMode_icon-yellow;
+  }
+  .fill-teal {
+    @apply fill-mom_lightMode_icon-teal;
+  }
+  .fill-green {
+    @apply fill-mom_lightMode_icon-green;
+  }
+  .fill-blue {
+    @apply fill-mom_lightMode_icon-blue;
+  }
+  .fill-lightBlue {
+    @apply fill-mom_lightMode_icon-lightBlue;
+  }
+  .fill-brown {
+    @apply fill-mom_lightMode_icon-brown;
+  }
+  .fill-grey {
+    @apply fill-mom_lightMode_icon-grey;
+  }
+  .fill-black {
+    @apply fill-mom_lightMode_icon-black dark:fill-white;
+  }
+}
+
+@layer utilities {
+  .text-default {
+    @apply text-mom_lightMode_icon-neutral dark:text-mom_darkMode_icon-neutral;
+  }
+  .text-exercise {
+    @apply text-mom_pillar-exercise;
+  }
+  .text-nutrition {
+    @apply text-mom_pillar-nutrition;
+  }
+  .text-stress {
+    @apply text-mom_pillar-stress;
+  }
+  .text-social {
+    @apply text-mom_pillar-social;
+  }
+  .text-sleep {
+    @apply text-mom_pillar-sleep;
+  }
+  .text-mental {
+    @apply text-mom_pillar-mental;
+  }
+  .text-purple {
+    @apply text-mom_lightMode_icon-purple;
+  }
+  .text-pink {
+    @apply text-mom_lightMode_icon-pink;
+  }
+  .text-red {
+    @apply text-mom_lightMode_icon-red;
+  }
+  .text-orange {
+    @apply text-mom_lightMode_icon-orange;
+  }
+  .text-yellow {
+    @apply text-mom_lightMode_icon-yellow;
+  }
+  .text-teal {
+    @apply text-mom_lightMode_icon-teal;
+  }
+  .text-green {
+    @apply text-mom_lightMode_icon-green;
+  }
+  .text-blue {
+    @apply text-mom_lightMode_icon-blue;
+  }
+  .text-lightBlue {
+    @apply text-mom_lightMode_icon-lightBlue;
+  }
+  .text-brown {
+    @apply text-mom_lightMode_icon-brown;
+  }
+  .text-grey {
+    @apply text-mom_lightMode_icon-grey;
+  }
+  .text-black {
+    @apply text-mom_lightMode_icon-black dark:text-white;
+  }
+}
+
+/* Typography */
+@layer utilities {
+  .display,
+  .headingLarge,
+  .headingMedium,
+  .headingSmall,
+  .body,
+  .captionMedium,
+  .captionRegular,
+  .tabBarTablet,
+  .tabBar,
+  .historyBold,
+  .historyRegular {
+    @apply font-inter text-mom_lightMode_text-neutral;
+    @apply dark:text-mom_darkMode_text-neutral;
+    // @apply border border-red-500;
+  }
+  .display {
+    @apply font-bold text-display;
+  }
+  .headingLarge {
+    @apply font-bold text-headingLarge;
+  }
+  .headingMedium {
+    @apply font-semibold text-headingMedium;
+  }
+  .headingSmall {
+    @apply font-bold text-headingSmall;
+  }
+  .body {
+    @apply font-normal text-body;
+  }
+  .captionMedium {
+    @apply font-semibold text-captionMedium;
+  }
+  .captionRegular {
+    @apply font-normal text-captionRegular;
+  }
+  .tabBarTablet {
+    @apply font-semibold text-tabBarTablet;
+  }
+  .tabBar {
+    @apply font-semibold text-tabBar;
+  }
+  .historyBold {
+    @apply font-bold text-historyBold;
+  }
+  .historyRegular {
+    @apply font-normal text-historyRegular;
+  }
+}
+
+.disabled {
+  background-color: -internal-light-dark(
+    rgba(239, 239, 239, 0.3),
+    rgba(19, 1, 1, 0.3)
+  ) !important;
+  color: -internal-light-dark(
+    rgba(16, 16, 16, 0.3),
+    rgba(255, 255, 255, 0.3)
+  ) !important;
+  border-color: -internal-light-dark(
+    rgba(118, 118, 118, 0.3),
+    rgba(195, 195, 195, 0.3)
+  ) !important;
+}
+
+/* Progress */
+.progress {
+  @apply md:px-4 py-2 mx-1 md:my-2 md:mx-0 border-b-2 md:border-b-0 md:border-l-2;
+}
+.progress_description {
+  @apply hidden md:block text-lg;
+}
+.progress_header {
+  @apply font-thin text-xs md:text-sm opacity-75;
+}
+.progress_active {
+  @apply border-yellow-300;
+}
+.progress_incomplete {
+  @apply opacity-50 border-gray-100;
+}
+.progress_complete {
+  @apply border-green-500;
+}
+.progress.subquestion {
+  @apply hidden md:block ml-4;
+}
+.progress_header.subquestion {
+  @apply hidden md:block font-thin text-xs;
+}
+.progress_description.subquestion {
+  @apply hidden md:block text-sm;
+}
+.flex-1.subquestion {
+  @apply hidden md:block;
+}
+
+h1 {
+  @apply text-3xl mb-4;
+}
+a {
+  @apply text-mom_lightMode_text-neutral hover:underline;
+}
+p {
+  @apply mb-4;
+}
+
+blockquote {
+  @apply dark:bg-mom_darkMode_surface-background;
+  border-left: 5px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+}
+
+blockquote p {
+  display: inline;
+}
+
+body,
+#root,
+.App,
+.App > div,
+.App > div > div {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.App {
+  background-color: black;
+}
+
+/* FOOTER */
+footer {
+  @apply pt-16;
+}
+.social .socialLink {
+  @apply inline-block bg-red-600 hover:bg-blue-400 rounded p-2 mr-2;
+}
+.social .socialGlyph {
+  @apply h-4;
+}
+
+/* Error pages */
+.error-page {
+  @apply flex justify-center items-center;
+  height: 400px;
+}
+
+/** MOM Calendar styling */
+#tracking,
+#home,
+#trackingPillar,
+#today {
+  min-height: 110vh;
+
+  .custom-calendar {
+    @apply px-0 py-2 shadow-none;
+    margin-bottom: env(safe-area-inset-top);
+
+    .calendar-header {
+      @apply border-b-mom_lightMode_icon-neutral;
+    }
+
+    #calendarType,
+    .calendar-weekday,
+    h3 {
+      @apply text-mom_lightMode_icon-neutral;
+      @apply dark:text-mom_darkMode_text-neutral;
+    }
+
+    .calendar-day-text {
+      @apply absolute left-1/2 top-[40%] -translate-x-1/2 -translate-y-[40%] text-mom_lightMode_text-primary;
+    }
+
+    .dropdown {
+      .dropdown-toggle {
+        @apply bg-mom_lightMode_icon-neutral text-white hover:bg-mom_lightMode_icon-neutral hover:text-mom_lightMode_icon-neutral;
+      }
+    }
+
+    .mom-calendar-body {
+      @apply px-1 grid grid-cols-7 gap-x-2 justify-around mt-2;
+
+      .calendar-day {
+        @apply relative;
+
+        .active-day-indicator {
+          @apply absolute left-1/2 -translate-x-1/2 -bottom-1 w-4 h-1 bg-mom_lightMode_icon-primary rounded-md;
+        }
+
+        button {
+          @apply w-10 h-10;
+        }
+      }
+    }
+  }
+}
+
+.bottom-toast-div {
+  @apply w-full px-6 fixed bottom-0 left-0 z-50 mb-8;
+}
+
+#customHabitModal {
+  .listGroup_primary:last-child {
+    @apply mb-8;
+  }
+}
+
+/** Page styling */
+#bottomNav {
+  button.btn-primary {
+    @apply w-auto;
+  }
+  @apply dark:bg-mom_darkMode_text-dark;
+}
+
+// MIND-691
+:not(input) {
+  user-select: none;
+}
+
+/** React Spring Bottom override */
+[data-rsbs-overlay],
+[data-rsbs-backdrop],
+[data-rsbs-root]:after {
+  z-index: 50 !important;
+}
+
+// RE: MIND-692
+
+#root:has(+ reach-portal > [data-rsbs-state]) {
+  pointer-events: none;
+}
+
+// Everyone else
+#root:has(+ reach-portal > [style*='--rsbs-backdrop-opacity:0.0']),
+// Safari...
+#root:has(+ reach-portal > [style*='--rsbs-backdrop-opacity: 0.0']) {
+  pointer-events: all !important;
+}
+
+// [data-rsbs-backdrop] {
+//   background-color: initial !important;
+// }
+// [data-rsbs-overlay] {
+//   -webkit-box-shadow: 5px 5px 14px 8px #000000;
+//   box-shadow: 5px 5px 14px 8px #000000;
+// }
+
+[data-rsbs-overlay] {
+  @apply dark:bg-mom_darkMode_text-dark;
+}
+
+[data-rsbs-header] {
+  box-shadow: none !important;
+  @apply px-6 dark:bg-mom_darkMode_text-dark;
+  padding-top: 20px !important;
+  border-top-left-radius: var(--rsbs-overlay-rounded, 16px);
+  border-top-right-radius: var(--rsbs-overlay-rounded, 16px);
+}
+
+[data-rsbs-scroll] {
+  @apply dark:bg-mom_darkMode_text-dark;
+  overflow: hidden;
+}
+
+[data-rsbs-header]:before {
+  top: 8px !important;
+}
+
+.display-default-icon {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    width: 1rem;
+  }
+}
+
+.progressIcon_glyph .display-default-icon {
+  svg {
+    width: 50%;
+  }
+}
+
+.display-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+}

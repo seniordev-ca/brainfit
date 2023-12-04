@@ -1,0 +1,99 @@
+[
+  {
+    "PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a",
+    "SK": "sample@test.ca",
+    "ID": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a",
+    "CreatedAt": "2022-04-04T14:39:33.484Z",
+    "Email": "sample@test.co"
+  },
+  {
+    "PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#quest",
+    "SK": "quest_dh29d644-4b75-4b1c-a9a7-5cfb9ea7dd2a",
+    "ID": "quest_dh29d644-4b75-4b1c-a9a7-5cfb9ea7dd2a",
+    "GSI1PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#quest",
+    "GSI1SK": "2022-04-04T14:39:33.484Z",
+    "CreatedAt": "2022-04-04T14:39:33.484Z",
+    "StartTime": "2022-04-04T14:31:33.484Z",
+    "EndTime": "2022-04-04T14:39:33.484Z"
+  },
+  {
+    "PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#quest_dh29d644-4b75-4b1c-a9a7-5cfb9ea7dd2a",
+    "SK": "quest_ans_q1",
+    "CreatedAt": "2022-04-04T14:39:33.484Z",
+    "QuestionKey": "q1",
+    "Value": "11"
+  },
+  {
+    "PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#quest_dh29d644-4b75-4b1c-a9a7-5cfb9ea7dd2a",
+    "SK": "quest_result_exercise",
+    "CreatedAt": "2022-04-04T14:39:33.484Z",
+    "Pillar": "exercise",
+    "Value": "4"
+  },
+  {
+    "PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#habit",
+    "SK": "habit_bbd9d644-4b75-4b1c-ccc9-5cfb9ea7dd2a",
+    "ID": "habit_bbd9d644-4b75-4b1c-ccc9-5cfb9ea7dd2a",
+    "GSI1PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#habit",
+    "GSI1SK": "SuMoTuWeThFrSa 0930",
+    "GSI2PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#habit",
+    "GSI2SK": "Exercise|Social",
+    "CreatedAt": "2022-04-04T14:39:33.484Z",
+    "Title": "Go to gym with friends",
+    "Schedule": "SuMoTuWeThFrSa 0930",
+    "Pillars": "Exercise|Social",
+    "CMSLink": "contentful-link to details",
+    "Custom": "True",
+    "Deleted": "False"
+  },
+  {
+    "PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#act",
+    "SK": "act_lsjkd98k-4b75-4b1c-ccc9-5cfb9ea7dd2a",
+    "ID": "act_lsjkd98k-4b75-4b1c-ccc9-5cfb9ea7dd2a",
+    "GSI1PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#act",
+    "GSI1SK": "2022-04-04T14:39:33.484Z",
+    "CreatedAt": "2022-04-04T14:39:33.484Z",
+    "Habit": "habit_bbd9d644-4b75-4b1c-ccc9-5cfb9ea7dd2a",
+    "Title": "Go to gym with friends",
+    "Pillars": "Exercise|Social"
+  },
+  {
+    "PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#comp",
+    "SK": "comp_polkd98k-llls-4b1c-ccc9-5cfb9ea7dd2a",
+    "ID": "comp_polkd98k-llls-4b1c-ccc9-5cfb9ea7dd2a",
+    "GSI1PK": "user_1eef5644-4b75-4b1c-a9a7-5cfb9ea7dd2a#comp",
+    "GSI1SK": "2022-04-04T14:39:33.484Z",
+    "CreatedAt": "2022-04-04T14:39:33.484Z",
+    "Status": "Complete"
+  },
+  {
+    "CreatedAt": "2022-05-31T20:01:26.644Z",
+    "GSI1PK": "N7kza4Fy42RS6zHr8HxKt4y4o5p2#act",
+    "GSI1SK": "2022-05-31T20:01:26.644Z",
+    "GSI2PK": "N7kza4Fy42RS6zHr8HxKt4y4o5p2#act",
+    "GSI2SK": "habit_3457f47d-b82b-4b9b-8a6f-a30e7d57fea7",
+    "Habit": "habit_3457f47d-b82b-4b9b-8a6f-a30e7d57fea7",
+    "ID": "act_a65b2012-f435-4f6e-8918-037993a776ef",
+    "PK": "N7kza4Fy42RS6zHr8HxKt4y4o5p2#act",
+    "Pillars": "exercise",
+    "Progress": 1,
+    "SK": "act_a65b2012-f435-4f6e-8918-037993a776ef",
+    "TargetValue": 1,
+    "Title": "Gym instead of netflix"
+  },
+  {
+    "CreatedAt": "2022-05-30T20:01:26.644Z",
+    "GSI1PK": "N7kza4Fy42RS6zHr8HxKt4y4o5p2#act",
+    "GSI1SK": "2022-05-30T20:01:26.644Z",
+    "GSI2PK": "N7kza4Fy42RS6zHr8HxKt4y4o5p2#act",
+    "GSI2SK": "habit_3457f47d-b82b-4b9b-8a6f-a30e7d57fea7",
+    "Habit": "habit_3457f47d-b82b-4b9b-8a6f-a30e7d57fea7",
+    "ID": "act_a64b2012-f435-4f6e-8918-037993a776ef",
+    "PK": "N7kza4Fy42RS6zHr8HxKt4y4o5p2#act",
+    "Pillars": "exercise",
+    "Progress": 1,
+    "SK": "act_a64b2012-f435-4f6e-8918-037993a776ef",
+    "TargetValue": 1,
+    "Title": "Gym instead of netflix"
+  }
+]

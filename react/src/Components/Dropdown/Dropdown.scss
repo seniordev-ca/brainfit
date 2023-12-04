@@ -1,0 +1,19 @@
+.dropdown {
+  @apply w-fit;
+
+  .dropdown-toggle {
+    @apply px-6 py-2.5 bg-red-400 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-600 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-500 transition duration-150 ease-in-out flex items-center whitespace-nowrap
+  }
+
+  .dropdown-menu {
+    @apply min-w-max absolute bg-white text-base z-50 float-left py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none;
+  
+    .dropdown-item {
+      @apply text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100;
+    }
+
+    .dropdown-header {
+      @apply text-gray-500 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent
+    }
+  }
+}

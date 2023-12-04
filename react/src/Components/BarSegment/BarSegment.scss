@@ -1,0 +1,25 @@
+/* Bar Segment */
+.bar_bgColor {
+    @apply bg-mom_lightMode_icon-neutral bg-opacity-25;
+    @apply dark:bg-mom_darkMode_icon-neutral dark:bg-opacity-25;
+}
+.barVertical_Container {
+    @apply w-2.5 h-full rounded-full flex items-end;
+}
+.barVertical_Layout {
+    @apply w-full rounded-full;
+}
+.barVertical_Value {
+    @apply bg-mom_lightMode_icon-neutral w-full rounded-full;
+    @apply dark:bg-mom_darkMode_icon-neutral;
+}
+.barHorizontal_Container {
+    @apply h-2.5 w-full rounded-full flex items-center;
+}
+.barHorizontal_Layout {
+    @apply h-full rounded-full;
+}
+.barHorizontal_Colour, .barVertical_Colour {
+    @apply bg-mom_lightMode_icon-neutral;
+    @apply dark:bg-mom_darkMode_icon-neutral;
+}

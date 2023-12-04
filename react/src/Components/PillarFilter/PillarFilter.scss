@@ -1,0 +1,23 @@
+#pillarFilter {
+  .list-primary,
+    .list-secondary {
+      .listItem_prefixSlot {
+  
+        // Standalone glyph sizing
+  
+        svg {
+          @apply w-6 mr-2;
+        }
+  
+        svg.all-pillars {
+          @apply w-8 h-auto mr-0;
+        }
+      }
+    }
+}
+
+.icon_systems {
+  svg {
+    @apply dark:fill-mom_darkMode_icon-primary
+  }
+}

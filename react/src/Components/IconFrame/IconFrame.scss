@@ -1,0 +1,17 @@
+.iconFrame_container {
+  @apply bg-white rounded-lg w-20 h-20 inline-block;
+  @apply flex items-center justify-center content-center;
+
+  img,
+  svg {
+    width: 60px !important;
+    height: auto !important;
+    margin: 10px auto;
+
+    &.smallIcon {
+      width: 48px !important;
+      height: auto !important;
+      margin: 16px auto;
+    }
+  }
+}

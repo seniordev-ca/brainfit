@@ -1,0 +1,57 @@
+/* Forms */
+.inputStyled_container {
+  .form-input, .form-select {
+      @apply w-full text-body h-14 border-0 rounded-[10px] bg-mom_lightMode_surface-dimmed text-mom_lightMode_text-neutral;
+      @apply dark:bg-mom_darkMode_surface-dimmed dark:text-mom_darkMode_text-primary;
+      @apply focus:ring-transparent;
+    }
+    .form-input::placeholder {
+      @apply text-mom_lightMode_text-dark opacity-50;
+      @apply dark:text-mom_lightMode_text-light;
+    }
+    .form-glyph {
+      @apply pl-11 bg-[length:16px_16px] bg-no-repeat; 
+    }
+    .inputWrapper {
+      @apply relative;
+    }
+    .inputGlyph {
+      @apply absolute w-4 h-4 top-1/2 -mt-2 left-4 bg-mom_lightMode_text-neutral;
+      @apply dark:bg-mom_darkMode_text-primary;
+    }
+    
+    .form-checkbox {
+      @apply rounded border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-offset-0 focus:ring-blue-200 focus:ring-opacity-50;
+    }
+    textarea {
+      @apply border-gray-300 rounded-lg;
+    }
+    .hintText {
+      @apply font-normal mt-1 text-xs;
+    }
+    .errorWrapper {
+      input,
+      select,
+      button {
+        @apply bg-red-50 border-red-500;
+      }
+      input:focus {
+        @apply bg-white;
+      }
+      .errorText {
+        @apply text-red-800 font-bold mt-1 text-xs;
+      }
+      .rw-widget-picker {
+        @apply border-red-500;
+      }
+      .rw-popup-container {
+        button {
+          background-color: initial;
+        }
+      }
+      .rw-time-input,
+      .rw-time-part-input:focus {
+        @apply bg-red-50;
+      }
+    }
+}

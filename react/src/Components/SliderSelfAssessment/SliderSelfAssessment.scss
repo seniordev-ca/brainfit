@@ -1,0 +1,10 @@
+.anchor {
+    h4, div {
+        @apply text-mom_lightMode_text-primary hover:no-underline cursor-pointer;
+        @apply dark:text-mom_darkMode_text-primary;
+    }
+}
+
+img {
+    @apply mr-2;
+}

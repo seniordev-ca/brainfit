@@ -1,0 +1,14 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+# Don't run test suite on branches prefixed with 'local/'
+if ! [[ "$BRANCH" == *"local/"* ]]; then
+  # Runs test before committing, if tests fail the commit will abort with exit 1
+  npm test
+  npm run lint-all
+fi
+
+# To test the abortion property works without having to commit something, uncomment the command below
+# exit 1

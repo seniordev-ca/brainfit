@@ -1,0 +1,17 @@
+/* Trainstops */
+.trainstops_container {
+    @apply flex w-full justify-center;
+    .trainstop {
+      @apply h-2 m-1 rounded-full transition-all;
+    }
+    .active {
+      @apply bg-gradient-to-r from-[#AB85B0] to-[#46304B] w-8 m-1; 
+      @apply dark:from-[#F4DDD2] dark:to-[#F0C8AF] m-1;
+    }
+    .inactive {
+      @apply w-2 bg-mom_lightMode_surface-dimmed;
+      @apply dark:bg-mom_darkMode_surface-dimmed; 
+      @apply hover:bg-mom_lightMode_surface-border; 
+      @apply dark:hover:bg-mom_darkMode_surface-border;
+    }
+  }

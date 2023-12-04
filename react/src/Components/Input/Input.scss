@@ -1,0 +1,10 @@
+/* Inputs */
+
+.form-input {
+  @apply w-full p-0 border-none bg-transparent text-mom_lightMode_text-neutral;
+  @apply dark:text-mom_darkMode_text-primary;
+}
+.form-input::placeholder {
+  @apply text-mom_lightMode_text-dark opacity-50;
+  @apply dark:text-mom_lightMode_text-light;
+}

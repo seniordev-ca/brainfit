@@ -1,0 +1,65 @@
+.custom-calendar {
+  @apply block rounded-lg bg-white w-full text-center;
+  @apply dark:bg-mom_darkMode_text-dark;
+  @apply lg:px-8 lg:pt-8;
+
+  .calendar-header {
+    @apply text-left text-red-500 font-light;
+  }
+
+  .calendar-grid {
+    @apply grid grid-cols-7 gap-1;
+  }
+
+  .calendar-body {
+    @apply relative items-center justify-center px-1;
+    @apply px-1 grid grid-cols-7 gap-x-2 justify-around mt-2;
+    @apply lg:px-10 lg:pt-5 lg:pb-10;
+
+    .current {
+      @apply text-red-500 font-normal;
+    }
+
+    .calendar-weekday {
+      @apply mb-7;
+    }
+    .calendar-control {
+      @apply absolute top-0 z-30 h-full cursor-pointer items-center justify-center border-transparent px-1;
+
+      .control-item {
+        @apply inline-flex justify-center items-center w-8 h-8 rounded-full border-2 sm:w-10 sm:h-10 border-white bg-transparent max-w-fit;
+      }
+    }
+
+    .calendar-day { 
+      @apply flex justify-center items-center min-h-max;
+      min-height: 1.75rem;
+
+      button {
+        @apply text-gray-dark hover:text-white cursor-pointer;
+
+        .calendar-day-text {
+          @apply absolute left-1/2 top-[40%] -translate-y-[40%] -translate-x-1/2;
+        }
+      }
+
+      button.active {
+        @apply bg-red-500 text-white hover:bg-red-300 hover:text-gray-dark;
+      }
+    }
+
+    .inactive {
+      button {
+        @apply bg-transparent cursor-default hover:bg-transparent hover:text-black;
+      }
+    }
+  }
+
+}
+
+.ellipsis {
+  svg {
+    @apply fill-mom_lightMode_icon-primary;
+    @apply dark:fill-mom_darkMode_icon-primary;
+  }
+}

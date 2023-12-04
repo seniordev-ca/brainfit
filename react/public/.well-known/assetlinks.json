@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "co.bitbakery.MindOverMatter",
+      "sha256_cert_fingerprints": [
+        "BF:E8:DC:63:78:BD:E2:FD:3F:54:06:22:10:FD:B1:75:A3:3F:88:A0:D8:B8:A8:F7:23:A7:F4:34:88:2F:5F:51"
+      ]
+    }
+  }
+]

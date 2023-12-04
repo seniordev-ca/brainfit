@@ -1,0 +1,28 @@
+#sixPillars {
+  @apply text-left container mx-auto;
+
+  .card-control {
+    button, svg {
+      height: 100%;
+      width: auto;
+    }
+  }
+}
+
+#firstRun {
+  @apply p-6 mb-4 mt-4 mx-auto max-w-3xl bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700;
+
+  #firstRunHeader {
+    @apply mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white;
+  }
+
+  #firstRunBody {
+    @apply mb-3 font-normal text-gray-700 dark:text-gray-400;
+  }
+}
+
+.icon_search {
+  svg {
+    @apply dark:fill-mom_darkMode_icon-primary;
+  }
+}

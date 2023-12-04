@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">BrainFit</string>
+    <string name="title_activity_main">BrainFit</string>
+    <string name="package_name">co.bitbakery.MindOverMatter</string>
+    <string name="custom_url_scheme">co.bitbakery.MindOverMatter</string>
+</resources>

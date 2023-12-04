@@ -1,0 +1,63 @@
+/* List Item */
+.list-primary.listItem_container {
+    @apply w-full rounded-xl bg-mom_lightMode_surface-dimmed;
+    @apply border-2 border-mom_lightMode_surface-dimmed; 
+    @apply dark:bg-mom_darkMode_surface-dimmed dark:border-mom_darkMode_surface-dimmed;
+}
+.list-secondary.listItem_container {
+    @apply w-full rounded-xl bg-transparent;
+    @apply border-2 border-transparent;
+    @apply dark:border-mom_darkMode_surface-dimmed;
+}
+.list-primary, .list-secondary {
+    .listItem_notificationDot {
+      @apply absolute -left-4 w-2 h-2 bg-mom_lightMode_icon-red rounded-full
+    }
+    .listItem {
+      @apply flex flex-row items-center px-4;
+      min-height: 3.25rem;
+    }
+    .listItem_prefixSlot {
+      @apply pr-3;
+      // Standalone glyph sizing
+      svg {
+        @apply w-5.5 h-auto; 
+      }
+      // ProgressIcon component sizing
+      .progress-icon { 
+        @apply w-14 h-14;
+
+        svg {
+          @apply w-full;
+        }
+        #progressIcon_circle > svg {
+          @apply w-10 h-auto;
+        }
+        .progressIcon_glyph {
+          svg { 
+            @apply w-10 h-10;
+          }
+        }
+      }
+    }
+    .labelContainer {
+      @apply flex-grow;
+    }
+    .listItem_labelSlot {
+      @apply flex-grow text-mom_lightMode_text-neutral;
+      @apply dark:text-mom_darkMode_text-neutral;
+    }
+    .listItem_suffixSlot {
+      @apply text-mom_lightMode_text-neutral text-opacity-70 dark:text-mom_lightMode_text-light mt-0;
+      svg {
+        @apply w-4 h-4 fill-mom_lightMode_text-primary dark:fill-mom_darkMode_text-primary;
+      }
+    }
+    .listItem_chevronSlot {
+      @apply text-mom_lightMode_text-neutral;
+      @apply dark:text-mom_darkMode_text-neutral;
+      .chevron {
+        @apply w-4 h-4 ml-4 fill-current;
+      }
+    }
+}

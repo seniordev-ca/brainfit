@@ -1,0 +1,13 @@
+.questionnaire {
+  @apply flex flex-col h-full;
+
+  .question-container {
+    @apply flex-1;
+  }
+
+  .bottom-nav {
+    @apply w-full fixed left-0 z-20;
+    @apply bg-gradient-to-t from-white;
+    @apply dark:from-mom_darkMode_surface-background
+  }
+}

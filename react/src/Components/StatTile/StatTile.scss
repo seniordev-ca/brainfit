@@ -1,0 +1,7 @@
+.streaks_icons {
+    svg {
+        @apply fill-mom_lightMode_icon-neutral;
+        @apply dark:fill-mom_darkMode_icon-neutral;
+    }
+}
+

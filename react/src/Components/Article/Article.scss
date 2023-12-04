@@ -1,0 +1,23 @@
+.custom-article {
+  @apply mx-auto flex flex-col justify-center bg-white dark:bg-mom_darkMode_surface-background;
+
+  .article-image {
+    @apply mx-auto flex w-full max-h-96 flex-col justify-center bg-white rounded-2xl shadow-xl;
+  }
+
+  .article-category {
+    @apply text-blue-400 text-xs mb-2;
+  }
+
+  .article-title {
+    @apply text-2xl font-medium text-slate-600 mb-0;
+  }
+
+  .article-byline {
+    @apply font-normal text-sm text-slate-400 mb-0;
+  }
+
+  .article-text {
+    @apply text-sm tracking-tight font-light text-slate-400 leading-6;
+  }
+}

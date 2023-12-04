@@ -1,0 +1,22 @@
+/* Nav Tab Item */
+.NavTabItem_Container {
+    @apply flex flex-col items-center justify-center text-mom_lightMode_text-neutral;
+    @apply hover:opacity-75 md:flex-row; 
+    @apply dark:text-mom_darkMode_icon-neutral;
+.NavTabItem_Image {
+    @apply w-6.5 h-6.5 self-center;
+    svg {
+        @apply fill-current;
+    }
+}
+.NavTabItem_Label {
+    @apply self-center md:pl-1;
+    @apply dark:text-mom_darkMode_icon-neutral;
+    @layer lg:tabBarTablet
+    @apply lg:tabBarTablet;
+}
+}
+.navContainer {
+    @apply bg-white;
+    @apply dark:bg-mom_darkMode_text-dark; 
+}

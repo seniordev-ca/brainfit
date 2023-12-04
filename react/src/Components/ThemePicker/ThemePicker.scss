@@ -1,0 +1,22 @@
+.ThemeIcon_container {
+    @apply flex flex-col items-center;
+    .ThemeIcon_label {
+        @apply text-mom_lightMode_text-neutral;
+        @apply dark:text-mom_darkMode_text-neutral;
+    }
+    .ThemeIcon {
+        @apply shadow-themeIconLight rounded-lg mb-4;
+        @apply dark:shadow-themeIconDark;
+    }
+}
+
+.ThemePicker {
+    .ThemePicker_container {
+        @apply grid grid-cols-2 justify-items-center w-full rounded-xl bg-mom_lightMode_surface-dimmed py-8 mb-4;
+        @apply dark:bg-mom_darkMode_surface-dimmed;
+    }
+    .ThemePicker_heading {
+        @apply text-mom_lightMode_text-neutral;
+        @apply dark:text-mom_darkMode_text-neutral;
+    }
+}

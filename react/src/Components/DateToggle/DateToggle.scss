@@ -1,0 +1,13 @@
+.dateToggle_container {
+    @apply flex flex-col items-center;
+}
+.dateToggle_circle {
+    @apply w-6 h-6 mb-2 rounded-full border-2 border-mom_lightMode_surface-border cursor-pointer;
+}
+.dateToggle_circle.true {
+    @apply relative bg-mom_lightMode_icon-primary border-mom_lightMode_icon-primary;
+    @apply dark:bg-mom_darkMode_icon-primary dark:border-mom_darkMode_icon-primary;
+    @apply before:absolute before:top-1/2 before:left-1/2 before:transform before:-translate-x-1/2 before:-translate-y-1/2;
+    @apply before:content-[url('../../img/icon_dateToggle_check.svg')] ml-0;
+    @apply dark:before:content-[url('../../img/icon_dateToggle_check-darkmode.svg')] ml-0;
+}

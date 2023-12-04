@@ -1,0 +1,20 @@
+.onboarding {
+  @apply pt-4 flex flex-col w-full;
+  height: 90vh;
+
+  .onboarding-header {
+    @apply text-right mb-2;
+  }
+
+  .onboarding-body {
+    @apply flex-1;
+
+    img {
+      @apply max-w-full max-h-full block w-full mr-0;
+    }
+
+    button {
+      @apply border-0 text-buttonRegular #{!important};
+    }
+  }
+}

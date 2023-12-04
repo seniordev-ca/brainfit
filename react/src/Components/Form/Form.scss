@@ -1,0 +1,27 @@
+.base-form {
+  @apply block justify-center max-w-md text-left text-lg;
+  margin: 0 auto;
+
+  .base-form-input {
+    @apply mb-5
+  }
+
+  input:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+    // background-color: transparent;
+  }
+
+  .base-form-button {
+    @apply mb-5;
+  }
+
+  .base-form-group {
+    @apply mb-5;
+  }
+
+  .base-form-error {
+    @apply border-b-2 border-t-2 border-red-400 p-2 mb-3;
+    font-size: 15px;
+  }
+}

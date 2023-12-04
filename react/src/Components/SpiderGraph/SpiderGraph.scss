@@ -1,0 +1,24 @@
+/* Spider Graph */
+.spiderGraph_container {
+    @apply w-full relative;
+  }
+  .SpiderGraphCanvas {
+    @apply absolute inset-0;
+  }
+  .spiderGraph {
+    @apply w-full;
+    .grid {
+      @apply stroke-mom_lightMode_surface-borderDimmed;
+      @apply dark:stroke-mom_darkMode_surface-borderDimmed;
+    }
+    .circleMental { @apply fill-mom_lightMode_icon-mental; }
+    .circleSocial { @apply fill-mom_lightMode_icon-social ; }
+    .circleExercise { @apply fill-mom_lightMode_icon-exercise; }
+    .circleStress { @apply fill-mom_lightMode_icon-stress ; }
+    .circleSleep { @apply fill-mom_lightMode_icon-sleep ; }
+    .circleNutrition { @apply fill-mom_lightMode_icon-nutrition ; }
+    .label {
+      @apply text-captionMedium fill-mom_lightMode_text-neutral;
+      @apply dark:fill-mom_darkMode_text-neutral;
+    }
+  }

@@ -1,0 +1,81 @@
+.progress-icon {
+  @apply flex relative;
+
+  g.logoBlend > rect {
+    fill: transparent;
+  }
+
+  g.logoBlend {
+    @apply mix-blend-lighten dark:mix-blend-normal;
+    .circle-bg {
+      @apply stroke-[rgba(255,255,255,.75)] fill-transparent;
+      stroke-linecap: round;
+    }
+
+    .circle-fg {
+      @apply dark:stroke-inherit fill-transparent;
+      stroke-linecap: round;
+    }
+
+    .circle-bg.black-bg {
+      @apply dark:stroke-gray-300;
+    }
+  }
+
+  @keyframes colorRotate {
+    // from { transform: rotate(270deg); }
+    // to { transform: rotate(-90deg); }
+  }
+
+  @keyframes pathStroke {
+    0% {
+      stroke-dashoffset: -288.5;
+    }
+    40%,
+    70% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: 288.5;
+    }
+  }
+
+  @keyframes pathRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-540deg);
+    }
+    100% {
+      transform: rotate(-1080deg);
+    }
+  }
+}
+
+#circle2 {
+  transform: rotate(-90deg) scaleY(-1);
+  transform-origin: 50% 50%;
+}
+
+.CircularProgressbar-trail {
+  stroke-opacity: 0.5;
+}
+
+// .CircularProgressbar .CircularProgressbar-path.overlimit {
+//   @apply stroke-green-400 fill-transparent;
+// }
+// .CircularProgressbar .CircularProgressbar-path.overlimit {
+//   @apply stroke-[#FF3A33] fill-transparent;
+// }
+// .CircularProgressbar .CircularProgressbar-trail.overlimit {
+//   @apply stroke-red-500 fill-transparent;
+// }
+.CircularProgressbar .CircularProgressbar-path.overlimit,
+.CircularProgressbar .CircularProgressbar-trail.overlimit {
+  @apply stroke-[#FF3A33] fill-transparent;
+}
+
+// 0% {  stroke-dashoffset: -288.5; }
+// 40%, 70% { stroke-dashoffset: 0; }
+// 100% { stroke-dashoffset: 288.5; }

@@ -1,0 +1,91 @@
+/* Buttons */
+.btn-text {
+  @apply text-headingSmall w-full p-5 rounded-full;
+}
+.p-loading {
+  padding: 12.5px 20px;
+}
+.loadingSpinner {
+  @apply animate-spin m-auto fill-mom_lightMode_icon-primary;
+  @apply dark:fill-mom_darkMode_icon-primary;
+}
+.btn-icon {
+  @apply w-auto rounded-full;
+  .btn-icon_glyph {
+    @apply h-4 w-4;
+  }
+}
+.btn-icon.medium {
+  @apply p-3.5;
+}
+.btn-icon.large {
+  @apply p-5;
+}
+
+.btn-primary {
+  // base
+  @apply shadow-1x border-2 bg-mom_lightMode_action-primary border-mom_lightMode_action-primary text-mom_lightMode_text-light fill-current;
+  // disabled
+  @apply disabled:bg-opacity-25 disabled:border-transparent disabled:cursor-not-allowed disabled:active:opacity-100;
+  // active
+  @apply active:opacity-75;
+  // dark mode
+  @apply dark:bg-mom_darkMode_action-primary dark:border-mom_darkMode_action-primary dark:text-mom_darkMode_text-dark dark:fill-mom_lightMode_icon-dark;
+  // dark mode disabled
+  @apply dark:disabled:bg-opacity-25 dark:disabled:border-opacity-0;
+}
+.btn-primary.btn-icon,
+.btn-primaryInvert.btn-icon {
+  @apply shadow-1x dark:shadow-2x;
+  @apply active:shadow-none;
+}
+.btn-primaryInvert {
+  // base
+  @apply border-2 bg-mom_lightMode_action-primary border-mom_lightMode_action-primary bg-opacity-25 border-opacity-0 text-mom_lightMode_icon-primary fill-current;
+  // disabled
+  @apply disabled:bg-opacity-25 disabled:border-transparent disabled:cursor-not-allowed disabled:active:opacity-100;
+  // dark mode
+  @apply dark:bg-mom_darkMode_action-primary dark:border-mom_darkMode_action-primary dark:bg-opacity-25 dark:border-opacity-0 dark:text-mom_darkMode_text-dark dark:fill-mom_darkMode_icon-primary;
+  // dark mode disabled
+  @apply dark:disabled:bg-opacity-25 dark:disabled:border-opacity-0;
+}
+.btn-secondary {
+  // base
+  @apply border-2 bg-white border-mom_lightMode_action-primary text-mom_lightMode_text-primary fill-current;
+  // disabled
+  @apply disabled:border-opacity-25 disabled:text-opacity-25 disabled:cursor-not-allowed active:disabled:bg-opacity-0;
+  // active
+  @apply active:bg-mom_lightMode_text-dark active:bg-opacity-10;
+  // dark mode
+  @apply dark:border-mom_darkMode_action-primary dark:text-mom_darkMode_text-primary dark:bg-transparent;
+  // dark mode active
+  @apply active:dark:bg-mom_darkMode_action-primary active:dark:bg-opacity-0 active:dark:border-opacity-100;
+  // dark mode disabled
+  @apply dark:disabled:border-opacity-25 dark:disabled:text-opacity-25;
+}
+.btn-tertiary {
+  // base
+  @apply border-2 border-transparent text-mom_lightMode_text-primary fill-current;
+  // disabled
+  @apply disabled:text-opacity-25 disabled:cursor-not-allowed;
+  // active
+  @apply active:text-opacity-75;
+  // dark mode
+  @apply dark:text-mom_darkMode_text-primary;
+  // dark mode disabled
+  @apply disabled:text-opacity-25 dark:disabled:active:text-opacity-25;
+  // dark mode active
+  @apply dark:active:text-opacity-75;
+}
+
+.btn-toggle {
+  @apply rounded-2xl active:bg-transparent;
+}
+.btn-toggle.toggle-on {
+  @apply bg-mom_lightMode_action-primary bg-opacity-10;
+  @apply dark:bg-mom_darkMode_action-primary dark:bg-opacity-10;
+}
+.toggleGlyph {
+  @apply text-mom_lightMode_icon-neutral fill-current;
+  @apply dark:text-mom_darkMode_icon-neutral;
+}

@@ -1,0 +1,14 @@
+/* Spider Graph */
+.spiderGraph_container {
+    @apply w-full relative p-4;
+  }
+  .spiderGraph {
+    @apply w-full text-mom_lightMode_text-neutral fill-current;
+    @apply dark:text-mom_darkMode_text-neutral;
+    .mental { @apply text-mom_pillar-mental fill-current; }
+    .social { @apply text-mom_pillar-social fill-current; }
+    .exercise { @apply text-mom_pillar-exercise fill-current; }
+    .stress { @apply text-mom_pillar-stress fill-current; }
+    .sleep { @apply text-mom_pillar-sleep fill-current; }
+    .nutrition { @apply text-mom_pillar-nutrition fill-current; }
+  }

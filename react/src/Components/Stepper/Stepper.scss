@@ -1,0 +1,20 @@
+.stepperContainer {
+    @apply border border-mom_lightMode_action-primary bg-white rounded-lg flex flex-row items-center w-min;
+    @apply dark:border-mom_darkMode_action-primary dark:bg-mom_darkMode_surface-background;
+
+    .stepper_stepdown, .stepper_stepup {
+        padding: 0.688rem 1.5rem;
+        border-radius: 0.438rem;
+        min-height: 2.375rem;
+        svg {
+            @apply fill-mom_lightMode_icon-primary;
+            @apply dark:fill-mom_darkMode_icon-primary;
+        }
+        @apply active:bg-black active:bg-opacity-10;
+        @apply active:dark:bg-white active:dark:bg-opacity-10;
+    }
+    .stepper_separator {
+        @apply w-px h-6 bg-mom_lightMode_surface-borderDimmed;
+        @apply bg-mom_darkMode_surface-borderDimmed;
+    }
+}

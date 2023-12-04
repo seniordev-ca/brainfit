@@ -1,0 +1,7 @@
+.SpiderGraphWithSlider_container {
+    @apply grid grid-cols-1 gap-4 py-4;
+    .dateLabel {
+        @apply block text-center mt-10 text-mom_lightMode_text-neutral opacity-75;
+        @apply dark:text-mom_darkMode_text-neutral;
+    }
+}

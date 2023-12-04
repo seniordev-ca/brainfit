@@ -1,0 +1,57 @@
+/* List Group */
+.listGroup_container {
+  @apply w-full flex flex-col mb-6;
+}
+.listGroup_heading {
+  @apply mb-2 headingSmall text-mom_lightMode_text-neutral opacity-75;
+  @apply dark:text-mom_darkMode_text-neutral;
+}
+
+// Grey Background List Group
+.listGroup_primary {
+  .listGroup_items_container {
+    @apply border-2 border-mom_lightMode_surface-dimmed bg-mom_lightMode_surface-dimmed rounded-xl;
+    @apply dark:bg-mom_darkMode_surface-dimmed dark:border-mom_darkMode_surface-dimmed;
+  }
+  .listGroup_items_container > .listGroup_items:first-child > .listItem_container {
+    @apply rounded-tl-xl rounded-tr-xl;
+    &:after {
+      @apply bg-transparent;
+      @apply dark:bg-transparent;
+    }
+  }
+  .listGroup_items_container > .listGroup_items > .listItem_container {
+    @apply relative bg-transparent rounded-none border-none py-0.5;
+    &:after {
+      @apply absolute content-[''] ml-4 h-px bg-mom_lightMode_surface-borderDimmed top-0 left-0 right-0;
+      @apply dark:bg-mom_darkMode_surface-borderDimmed;
+    }
+  }
+  .listGroup_items_container > .listGroup_items:last-child > .listItem_container {
+    @apply rounded-bl-xl rounded-br-xl;
+  }
+}
+
+// White Background List Group
+.listGroup_secondary {
+  .listGroup_items_container {
+    @apply border-2 border-mom_lightMode_surface-borderDimmed rounded-xl;
+    @apply dark:border-mom_darkMode_surface-borderDimmed;
+  }
+  .listGroup_items_container > .listGroup_items:first-child > .listItem_container {
+    @apply rounded-tl-xl rounded-tr-xl;
+    &:after {
+      @apply bg-transparent;
+    }
+  }
+  .listGroup_items_container > .listGroup_items > .listItem_container {
+    @apply relative bg-transparent rounded-none border-none py-0.5;
+    &:after {
+      @apply absolute content-[''] ml-4 h-px bg-mom_lightMode_surface-borderDimmed top-0 left-0 right-0;
+      @apply dark:bg-mom_darkMode_surface-borderDimmed;
+    }
+  }
+  .listGroup_items_container > .listGroup_items:last-child > .listItem_container {
+    @apply rounded-bl-xl rounded-br-xl;
+  }
+}

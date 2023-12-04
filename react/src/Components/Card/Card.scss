@@ -1,0 +1,22 @@
+.card-actionable {
+  @apply w-full px-4 py-6 bg-white shadow-cardLight rounded-card;
+  @apply dark:bg-mom_darkMode_surface-backgroundRaised dark:shadow-cardDark;
+  .imgContainer {
+    @apply relative h-56 -ml-4 -mr-4 -mt-6 mb-6 rounded-t-card bg-no-repeat bg-cover bg-center;
+    // @apply before:absolute before:inset-0 before:rounded-t-card before:bg-gradient-to-bl before:from-black before:to-transparent before:opacity-40; // gradient screen overtop of images
+  }
+  .imgCaption {
+    @apply absolute right-4 top-4 font-bold text-headingSmall text-mom_darkMode_text-neutral;
+  }
+  @apply active:opacity-75 cursor-pointer;
+  @apply dark:active:opacity-50;
+}
+
+.cardScreen {
+  opacity: 50% !important;
+}
+
+.card-notactionable {
+  @apply w-full p-4 border-2 border-mom_lightMode_surface-borderDimmed rounded-card;
+  @apply dark:border-mom_darkMode_surface-borderDimmed;
+}

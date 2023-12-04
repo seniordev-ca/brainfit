@@ -1,0 +1,20 @@
+.toast_container {
+    @apply rounded-lg px-8 py-7 bg-white mb-2;
+    box-shadow: 4px -8px 28px rgba(70, 48, 75, 0.25);
+}
+
+.toast_container.success {
+    background-color: #D1E9E0;
+}
+
+.toast_container.error {
+    background-color: #FCD1D1;
+}
+
+.toastIcon {
+    @apply w-6 mr-4;
+}
+
+.toastContents {
+    @apply flex-1 text-left;
+}

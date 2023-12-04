@@ -1,0 +1,67 @@
+
+.carousel {
+  @apply bg-black/20;
+
+  .carousel-item {
+    @apply mx-auto;
+    * {
+      @apply mx-auto;
+    }
+  }
+
+  .carousel-wrapper {
+    @apply overflow-hidden relative rounded-lg h-screen;
+  }
+
+  .carousel-item {
+    @apply duration-700 ease-in-out text-black;
+  }
+
+  .carousel-indicators {
+    @apply flex absolute bottom-8 left-1/2 z-10 space-x-3 -translate-x-1/2 border-transparent mx-0; 
+    
+    .carousel-indicator {
+      @apply w-3 h-2 rounded-full shadow-md bg-black/50 dark:bg-white border-2 border-white px-3;
+    }
+  
+  }
+  .carousel-control {
+    @apply absolute top-0 z-10 justify-center items-center px-4 h-full cursor-pointer focus:outline-none border-transparent;
+
+    .control-item {
+      @apply shadow-md inline-flex justify-center items-center w-8 h-8 rounded-full border-2 sm:w-10 sm:h-10 border-white bg-black/50 max-w-fit;
+
+      //animation: fadeIn 5s;
+      // -webkit-animation: fadeIn 5s;
+      // -moz-animation: fadeIn 5s;
+      // -o-animation: fadeIn 5s;
+      // -ms-animation: fadeIn 5s;
+
+      @keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-moz-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-webkit-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-o-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+      
+      @-ms-keyframes fadeIn {
+        0% {opacity:0;}
+        100% {opacity:1;}
+      }
+    }
+  }
+
+}

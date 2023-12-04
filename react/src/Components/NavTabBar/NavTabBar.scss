@@ -1,0 +1,17 @@
+.navTabBar_tutorialOverlay {
+    .tut3Content {
+        @apply hidden;
+    }
+}
+.navTabBar_tutorialOverlay.active {
+    .tut3 {
+        @apply relative;
+    }
+    .tut3Content {
+        @apply inline-block absolute -top-40 left-1/2 -translate-x-1/2;
+        svg {
+            @apply fill-mom_lightMode_icon-neutral;
+            @apply dark:fill-mom_darkMode_icon-neutral;
+        }
+    }
+}

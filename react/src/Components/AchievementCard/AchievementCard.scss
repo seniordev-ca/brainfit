@@ -1,0 +1,24 @@
+.incomplete {
+    height: auto; 
+    width: auto; 
+    max-width: 200px; 
+    max-height: 200px;
+    margin: 0 auto;
+}
+
+.star {
+    height: auto; 
+    width: auto; 
+    max-width: 200px; 
+    max-height: 200px;
+    margin: 0 auto;
+    
+}
+
+.star:hover {
+    background: gold;
+    max-width: 250px; 
+    max-height: 250px;
+    cursor: pointer;
+    
+}

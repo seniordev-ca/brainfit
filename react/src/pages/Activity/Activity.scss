@@ -1,0 +1,18 @@
+.inline1 {
+    display: inline-block; 
+}
+
+.right {
+    float: right;
+}
+
+.image {
+    max-width: 25%;
+    float: right;
+    margin-right: 15px;
+}
+
+.flexline {
+    display: flex;
+    justify-content: space-between;
+}

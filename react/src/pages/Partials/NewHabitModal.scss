@@ -1,0 +1,5 @@
+.fixed-create-button {
+  @apply w-screen h-[150px] bottom-[150px] px-14 pt-12 -m-6 -mb-8 fixed;
+  @apply bg-gradient-to-t from-white;
+  @apply dark:from-mom_darkMode_surface-background
+}
